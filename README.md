@@ -12,6 +12,12 @@ Synopsis
     telnetify command [command arguments]
 
 
+Status
+------
+
+[![Build Status](https://travis-ci.org/acdimalev/telnetify.svg?branch=master)](https://travis-ci.org/acdimalev/telnetify)
+
+
 Installation
 ------------
 
