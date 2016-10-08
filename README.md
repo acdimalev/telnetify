@@ -16,7 +16,6 @@ Status
 ------
 
 [![Build Status](https://travis-ci.org/acdimalev/telnetify.svg?branch=master)](https://travis-ci.org/acdimalev/telnetify)
-
 [![Crate Release](https://img.shields.io/crates/v/telnetify.svg)](https://crates.io/crates/telnetify)
 
 
