@@ -1,6 +1,6 @@
 [package]
 name = "telnetify"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["acdimalev <jamin@bitlag.net>"]
 description = "A tool for local development of TELNET applications."
 repository = "https://github.com/acdimalev/telnetify"
