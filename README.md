@@ -9,7 +9,7 @@ It has two important limitations:
 Synopsis
 --------
 
-    telnetify command [command arguments]
+    telnetify COMMAND [COMMAND ARGUMENTS]
 
 
 Status

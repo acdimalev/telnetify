@@ -9,11 +9,19 @@ fn stdio_dup_from<T: AsRawFd>(x: &T) -> Stdio {
     unsafe { Stdio::from_raw_fd(libc::dup(x.as_raw_fd())) }
 }
 
+fn usage() {
+    println!("Usage: telnetify COMMAND [COMMAND ARGUMENTS]");
+}
+
 fn main() {
     // process arguments
-    let mut args = env::args();
-    args.next().unwrap();
-    let command = args.next().unwrap();
+    // skip the first argument -- name of our binary
+    // print usage if command is not specified
+    let mut args = env::args().skip(1);
+    let command = match args.next() {
+        Some(x) => x,
+        None => return usage(),
+    };
     let command_args = args.collect::<Vec<_>>();
 
     // open tcp socket
