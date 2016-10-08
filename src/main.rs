@@ -5,6 +5,10 @@ use std::net::TcpListener;
 use std::os::unix::io::{AsRawFd,FromRawFd};
 use std::process::{Command,Stdio};
 
+fn stdio_dup_from<T: AsRawFd>(x: &T) -> Stdio {
+    unsafe { Stdio::from_raw_fd(libc::dup(x.as_raw_fd())) }
+}
+
 fn main() {
     // process arguments
     let mut args = env::args();
@@ -28,9 +32,9 @@ fn main() {
     // wait for telnet to connect
     let (stream, _) = listener.accept().unwrap();
     drop(listener);
-    let stdin = unsafe { Stdio::from_raw_fd(libc::dup(stream.as_raw_fd())) };
-    let stdout = unsafe { Stdio::from_raw_fd(libc::dup(stream.as_raw_fd())) };
-    let stderr = unsafe { Stdio::from_raw_fd(libc::dup(stream.as_raw_fd())) };
+    let stdin = stdio_dup_from(&stream);
+    let stdout = stdio_dup_from(&stream);
+    let stderr = stdio_dup_from(&stream);
 
     // spawn application
     let mut application = Command::new(command)
