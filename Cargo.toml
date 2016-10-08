@@ -2,6 +2,10 @@
 name = "telnetify"
 version = "0.1.0"
 authors = ["acdimalev <jamin@bitlag.net>"]
+description = "A tool for local development of TELNET applications."
+repository = "https://github.com/acdimalev/telnetify"
+keywords = ["telnet"]
+license = "MIT"
 
 [dependencies]
 libc = "0.2"
